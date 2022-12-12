@@ -1,0 +1,225 @@
+// http://ionicframework.com/docs/theming/
+
+@use "sass:map";
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.md .logout-button {
+    border-top: 1px solid #bebebe;
+}
+
+.ios ion-action-sheet ion-icon {
+    &[class*="custom-"] {
+        mask-position: 0% 0%;
+        width: 1.2em;
+    }
+}
+
+ion-icon {
+    &[class*="custom-"] {
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+
+    &[class*="custom-claim"] {
+        mask-image: url(../assets/custom_icons/claim.svg);
+    }
+
+    &[class*="custom-iris"] {
+        mask-image: url(../assets/custom_icons/iris_logo.png);
+    }
+
+    &[class*="custom-oncall"] {
+        mask-image: url(../assets/custom_icons/oncall_logo.png);
+    }
+
+}
+
+body {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.divider {
+    border-bottom: 1px solid lightgray;
+    width: inherit;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.no-overflow {
+    width: 100%;
+    max-width: 60%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    font-weight: bold;
+
+}
+
+// Very hacky workaround to get around bugs in ionic 3 ion-chip rendering
+.chip-color {
+    visibility: hidden;
+}
+
+.chip-color.primary {
+    background: rgba(246, 161, 108, 0.7);
+}
+
+.chip-color.secondary {
+    background: rgba(178, 176, 250, 0.7);
+}
+
+.chip-color.shadow {
+    background: rgba(172, 185, 194, 0.7);
+}
+
+.chip-color.manager {
+    background: rgba(101, 195, 232, 0.7);
+}
+
+.chip-color.vacation {
+    background: rgba(145, 196, 117, 0.7);
+}
+
+.chip-color.unavailable {
+    background: rgba(255, 145, 207, 0.7);
+}
+
+.role-chip {
+    background-color: inherit;
+    visibility: visible;
+    float: right;
+}
+
+.chip-workaround {
+    padding-left: 10px;
+    padding-right: 10px;
+    visibility: visible;
+    font-weight: bold;
+}
+
+.popover-content ion-list ion-label
+{
+    font-size:12px !important;
+}
+
+.action-sheet-ios .action-sheet-button {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.action-sheet-md .action-sheet-button {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.item-ios {
+    padding-left: 0 !important;
+}
+
+.list-ios .item-inner {
+    padding-left: 16px !important;
+}
+
+.item-ios.item-block .item-inner {
+    padding-left: 16px !important;
+}
+
+.bar-buttons-ios[end] {
+    margin-right: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    ion-app {
+        color: map-get($map: $colorsDark, $key: "foreground") !important;
+        background: map-get($map: $colorsDark, $key: "background") !important;
+    }
+
+    ion-content {
+        color: map-get($map: $colorsDark, $key: "foreground");
+        background: map-get($map: $colorsDark, $key: "background");
+    }
+
+    ion-toolbar {
+        .item-md.item-block .item-inner, .item-ios.item-block .item-inner {
+            border-bottom: 0 !important;
+        }
+    }
+
+    .ion-backdrop {
+        opacity: 0.8;
+    }
+
+    .toolbar-background-ios {
+        background: map-get($map: $colorsDark, $key: "background");
+    }
+
+    .content-md, .content-ios, .item-md, .item-ios, .item-md-light, .item-divider-md-light, .item-ios-light, .item-divider-ios-light {
+        color: map-get($map: $colorsDark, $key: "foreground");
+        background: map-get($map: $colorsDark, $key: "background");
+    }
+
+    .action-sheet-md .action-sheet-group, .action-sheet-ios .action-sheet-group {
+        background: map-get($map: $colorsDark, $key: "background-alt");
+    }
+
+    .action-sheet-md .action-sheet-button, .action-sheet-ios .action-sheet-button {
+        color: map-get($map: $colorsDark, $key: "foreground");
+    }
+
+    .toolbar-background-md, .toolbar-content-md .item-md, .toolbar-background-ios, .toolbar-content-ios .item-ios {
+        background: map-get($map: $colorsDark, $key: "background-alt");
+    }
+
+    .alert-md .alert-message, .alert-md .alert-input-group, .alert-ios .alert-wrapper, .alert-md .alert-wrapper {
+        color: map-get($map: $colorsDark, $key: "foreground");
+        background: map-get($map: $colorsDark, $key: "background-alt");
+    }
+
+    .toolbar-title-md, .toolbar-title-ios {
+        color: map-get($map: $colorsDark, $key: "foreground");
+    }
+
+    .action-sheet-md .action-sheet-button.activated, .action-sheet-ios .action-sheet-button.activated {
+        color: map-get($map: $colorsDark, $key: "foreground");
+        background: map-get($map: $colorsDark, $key: "background-alt-light");
+    }
+
+    .card-md, .card-ios {
+        color: map-get($map: $colorsDark, $key: "foreground");
+        background: map-get($map: $colorsDark, $key: "background-alt");
+
+        p {
+            color: map-get($map: $colorsDark, $key: "foreground");
+        }
+    }
+
+    .card-title-md, .card-title-ios, .chip-md, .chip-ios {
+        color: map-get($map: $colorsDark, $key: "foreground");
+    }
+}
